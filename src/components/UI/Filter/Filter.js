@@ -9,18 +9,18 @@ const Filter = (props) => {
   return (
     <div className={classes.Filter}>
       <div className={classes.Filter__control}>
-        <select 
-          value={props.selected} 
+        <select
+          value={props.selected}
           onChange={(e) => {
-            setSelectedOption(e.target.value); 
+            setSelectedOption(e.target.value);
             dropdownChangeHandler(e);
           }}>
-          <option value="" selected hidden={selectedOption? false : true} className={classes.cancel}>
+          <option value="" hidden={selectedOption ? false : true} className={classes.cancel}>
             {selectedOption ? "Cancel Selection" : `Select ${props.type}`}
           </option>
-          {props.options.map(option => 
-            <option key={option.name} value={option.name} style={{textTransform: "capitalize"}}>{option.name}</option>
-            )}
+          {props.options.map(option =>
+            <option key={option.name} value={option.name} style={{ textTransform: "capitalize" }}>{option.name}</option>
+          )}
         </select>
       </div>
     </div>
