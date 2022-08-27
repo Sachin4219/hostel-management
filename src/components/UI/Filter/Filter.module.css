@@ -1,0 +1,29 @@
+.Filter {
+    color: white;
+    padding: 0 1rem;
+    /* width: 100%; */
+}
+
+.Filter__control {
+    display: flex;
+    /* width: 100%; */
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 ;
+}
+
+.Filter label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.Filter select {
+    font: inherit;
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-radius: 6px;
+}
+.cancel{
+    background-color: #fecaca;
+}

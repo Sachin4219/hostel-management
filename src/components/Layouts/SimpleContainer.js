@@ -1,7 +1,6 @@
 const SimpleContainer = ({children}) => {
     return (
         <div>
-            <></>
             {children}
         </div>
     );
