@@ -10,7 +10,7 @@ export default function Forgot_Pass() {
                 <p className="detail">Please Enter the email address that you used to register, and we will send you and OTP to reset your Password</p>
                 <input type="text" className="reset_field" id="reset_field" placeholder='Enter Email' />
                 <input type="submit" value="Reset My Password" className='reset_btn' />
-                <p className="sign_in">Return to <Link to="/login">Sign in</Link></p>
+                <p className="sign_in">Return to <Link to="/student/login">Sign in</Link></p>
             </div>
         </div>
     );
