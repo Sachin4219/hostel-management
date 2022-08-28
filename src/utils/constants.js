@@ -9,7 +9,6 @@ export const complaints = [
         _id:"#12",
         handlingOfficer:1,
         date:"15 August 1947"
-
     },
     {
         name:"Sean",

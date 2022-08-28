@@ -6,7 +6,6 @@ const SimpleContainer = ({children}) => {
         <div>
             <Navbar />
             {children}
-            
         </div>
     );
 }

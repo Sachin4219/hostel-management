@@ -204,7 +204,6 @@ nav .menu li:hover {
 
 .titleContent button:hover,
 .titleContent button:focus {
-  /* box-shadow: inset -78.2px 0 0 0 #273272, inset 78.2px 0 0 0 #273272; */
   box-shadow: inset 156.4px 0 0 0 #273272;
   color: white;
   transition: .3s;
@@ -220,7 +219,7 @@ nav .menu li:hover {
 footer {
   background: url("http://cvitanic.info/wp-content/uploads/2016/05/background-main.jpg") center no-repeat;
   background-size: cover;
-  width: 100%;
+  width: 100vw;
   display: flex;
   font-family: 'Montserrat', sans-serif;
   justify-content: space-between;
@@ -235,14 +234,26 @@ footer {
   width: 34%;
 }
 
-.contactUs input {
+.contactUs input,
+.contactUs textarea {
   color: black;
   border: none;
   padding: 1rem;
   background-color: #c9d3da;
   width: 70%;
   margin: 0.5rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .9rem;
   border-radius: 5px;
+}
+
+.contactUs textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .97rem;
+}
+
+.contactUs .message {
+  height: 60px;
 }
 
 .contactUs button {
@@ -347,35 +358,23 @@ footer {
 }
 
 .facebook:hover {
-  border: 1px solid #3B5998;
-}
-
-.facebook:hover svg {
-  color: #3B5998;
+  border: 1px solid #4269be;
+  background-color: #4269be;
 }
 
 .instagram:hover {
-  border: 1px solid #125688;
-}
-
-.instagram:hover svg {
-  color: #125688;
+  border: 1px solid #bc2a8d;
+  background-color: #bc2a8d;
 }
 
 .twitter:hover {
   border: 1px solid #55ACEE;
-}
-
-.twitter:hover svg {
-  color: #55ACEE;
+  background-color: #55ACEE;
 }
 
 .youtube:hover {
   border: 1px solid #bb0000;
-}
-
-.youtube:hover svg {
-  color: #bb0000;
+  background-color: #bb0000;
 }
 
 .quickLinks {
@@ -403,6 +402,23 @@ footer {
 
 .quickLinks li:hover {
   color: #273272;
+}
+
+.imageSection {
+  background: url(https://www.ookla.com/s/media/2022/01/5g-report-hubspot-header-1200x400.png) center no-repeat;
+  background-size: cover;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0 4rem;
+}
+
+.imageSection span {
+  text-align: center;
 }
 
 
@@ -645,6 +661,10 @@ nav .right li {
   .about .footerDes {
     padding: 0 .6rem;
   }
+
+  .imageSection {
+    font-size: 1.8rem;
+  }
 }
 
 @media screen and (max-width:400px) {
@@ -671,5 +691,9 @@ nav .right li {
 
   .about .footerDes {
     padding: 0 0.2rem;
+  }
+
+  .imageSection {
+    font-size: 1.9rem;
   }
 }
