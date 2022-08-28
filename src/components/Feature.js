@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 
 function Feature(props) {
 
-    //     const [bg, setBg] = useState('featureBox');
     const [bgheader, setBgheader] = useState('bi bi-gem');
-    //     const [title, setTitle] = useState('featureTitle header');
 
     const onMouseEnter = () => {
-        //         setBg('featureBox hoverBox');
         setBgheader('bi bi-gem hoverSvg');
-        //         setTitle('featureTitle hoverHeader');
     }
 
     const onMouseLeave = () => {
-        //         setBg('featureBox');
         setBgheader('bi bi-gem');
-        //         setTitle('featureTitle header');
     }
 
     return (
