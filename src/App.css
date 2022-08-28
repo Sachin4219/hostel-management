@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto&display=swap');
+
 ::after,
 ::before {
     overflow: hidden;
@@ -5,6 +7,7 @@
 
 body {
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 a {

@@ -16,6 +16,7 @@ export default function Register() {
             "password": password,
             "email": email
         }
+        console.log(register_data);
     }
     return (
         <div className="container">

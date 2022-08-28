@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Otp from './pages/Otp';
 import ForgotPassword from './pages/ForgotPassword';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ChangePassword from './pages/change_password';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='dashboard' element={<h1>Dashboard</h1>}> </Route>
         <Route exact path='complaints' element={<Complaints />}> </Route>
         <Route exact path='/' element={<Home />}> </Route>
+        <Route exact path='/change' element={<ChangePassword />}> </Route>
       </Routes>
     </Router>
   );

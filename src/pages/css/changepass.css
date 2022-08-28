@@ -1,0 +1,92 @@
+.change_box {
+    width: 50%;
+}
+
+.change_model {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.change_model .header {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.change_model .change_input_fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+}
+
+.change_model .change_input_fields input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid #000;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.change_submit {
+    width: 50%;
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.change_model p {
+    font-size: 1.3rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+@media (max-width:500px) {
+    .change_box {
+        width: 100%;
+    }
+
+    .change_model {
+        width: 90%;
+    }
+
+    .change_model .change_input_fields {
+        width: 100%;
+    }
+
+    .change_submit {
+        width: 70%;
+    }
+}
+
+@media (max-width:990px) {
+    .change_box {
+        width: 70%;
+    }
+
+    .change_model .change_input_fields {
+        width: 100%;
+    }
+}
+
+@media (max-width:1200px) {
+    .change_model {
+        width: 100%;
+    }
+
+    .change_model .change_input_fields {
+        width: 80%;
+    }
+}
