@@ -26,16 +26,16 @@ function Navbar() {
                     </svg>
                 </div>
                 <ul className='large-tabs'>
-                    <a href='/'><li>Admin Login</li></a>
-                    <a href='/'><li>Student Login</li></a>
-                    <a href='/'><li>Register</li></a>
+                    <a href='/admin/login'><li>Admin Login</li></a>
+                    <a href='/student/login'><li>Student Login</li></a>
+                    <a href='/student/register'><li>Register</li></a>
                 </ul>
             </div>
             <div className={menu}>
                 <ul className='visible'>
-                    <a href='/'><li>Admin Login</li></a>
-                    <a href='/'><li>Student Login</li></a>
-                    <a href='/'><li>Register</li></a>
+                    <a href='/admin/login'><li>Admin Login</li></a>
+                    <a href='/student/login'><li>Student Login</li></a>
+                    <a href='/student/register'><li>Register</li></a>
                 </ul>
             </div>
         </nav>
