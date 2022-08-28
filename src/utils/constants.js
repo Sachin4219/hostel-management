@@ -7,8 +7,8 @@ export const complaints = [
         phoneNumber:"9866542210",
         description:"Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet",
         _id:"#12",
-            handlingOfficer:1,
-            date:"15 August 1947"
+        handlingOfficer:1,
+        date:"15 August 1947"
 
     },
     {

@@ -1,7 +1,31 @@
-.filterContainer{
+.filterContainer {
     display: flex;
     align-items: center;
-    gap:36px;
+    gap: 36px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+.noComplaints{
+    margin-top:10%;
+    color: #475569;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    font-size: 36px;
+    font-weight: 600;
+}
+.smile{
+    font-weight: bold;
+}
+@media screen and (max-width:720px) {
+    .filterContainer {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .filterContainer {
+        flex-direction: column;
+    }
 }

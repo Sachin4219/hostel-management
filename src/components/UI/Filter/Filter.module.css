@@ -9,7 +9,7 @@
     /* width: 100%; */
     align-items: center;
     justify-content: space-between;
-    margin: 10px 0 ;
+    margin: 10px 0;
 }
 
 .Filter label {
@@ -18,12 +18,29 @@
 }
 
 .Filter select {
+    border:3px solid #475569;
+    background-color: white;
+    color:#475569;
     font: inherit;
     padding: 10px 0;
     font-weight: bold;
     text-transform: capitalize;
     border-radius: 6px;
 }
-.cancel{
+
+.cancel {
     background-color: #fecaca;
+}
+
+@media screen and (max-width:720px) {
+    .Filter {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .Filter select {
+        width: 190px;
+    }
+
 }

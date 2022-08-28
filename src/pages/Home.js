@@ -1,15 +1,14 @@
 import './css/home.css';
-import Navbar from '../components/Navbar';
+import SimpleContainer from '../components/Layouts/SimpleContainer';
 import Content from '../components/Content';
 import Footer from '../components/Footer';
 
 function Home() {
   return (
-    <>
-      <Navbar />
+    <SimpleContainer>
       <Content />
       <Footer />
-    </>
+    </SimpleContainer>
   );
 }
 

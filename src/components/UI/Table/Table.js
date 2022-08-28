@@ -1,9 +1,10 @@
-import { complaints } from "../../../utils/constants";
 import Card from "../ComplaintCard/Card";
 import Filter from "../Filter/Filter";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Table.module.css"
+import { BsEmojiSmileUpsideDown} from "react-icons/bs"
+
 const optionHostels = [
     { name: "Aryabhatta" },
     { name: "Ramanujam" }
@@ -22,12 +23,28 @@ const optionAvailiability = [
 ]
 
 const Table = () => {
-
+    const [complaints,setComplaints] = useState([]) 
     const [filteredHostel, setFilteredHostel] = useState("");
     const [filteredAvailiability, setFilteredAvailiability] = useState('');
     const [filteredIssueCategory, setFilteredIssueCategory] = useState('');
 
-    const [filteredComplaints, setFilteredComplaints] = useState(complaints)
+    const [filteredComplaints, setFilteredComplaints] = useState([])
+    const [isLoading,setLoading] = useState(true)
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                setLoading(true)
+                const resp= await axios.get("http://localhost:4000/admin/complaints") 
+                setComplaints(resp.data.complaints);
+                setFilteredComplaints(resp.data.complaints)
+                setLoading(false)
+            } catch (error) {
+                setLoading(false)
+                console.log("[Get Complaints]",error)
+            }
+        }
+        fetchData()
+    },[])
 
     function filterHostelHandler(selectedHostel) {
         setFilteredHostel(selectedHostel);
@@ -59,7 +76,6 @@ const Table = () => {
             }))
     }
 
-    // console.log(filteredHostel ? filteredHostel : ".", filteredIssueCategory ? filteredIssueCategory : ".", filteredAvailiability ? filteredAvailiability : ".")
 
     function filterIssueCategoryHandler(selectedIssueCategory) {
         setFilteredIssueCategory(selectedIssueCategory);
@@ -86,18 +102,26 @@ const Table = () => {
         axios.post("http://localhost:5000/complaints", { id: id, status: "pending", escalated: true })
     }
 
+    
+
+    
     return (
+
         <div>
-            <div className={classes.filterContainer}>
-                <Filter filterHandler={filterHostelHandler} options={optionHostels} type={"Hostel"}></Filter>
-                <Filter filterHandler={filterIssueCategoryHandler} options={optionCategory} type={"Category"}></Filter>
-                <Filter filterHandler={filterAvailiabilityHandler} options={optionAvailiability} type={"Availiability"}></Filter>
-            </div>
-            {filteredComplaints.map((elem => {
-                return (
-                    <Card data={elem} key={elem._id} onAccept={onAccept} onReject={onReject} onEscalate={onEscalate} />
-                )
-            }))}
+            {isLoading? <h1>Loading</h1> : 
+                <div>
+                    <div className={classes.filterContainer}>
+                        <Filter filterHandler={filterHostelHandler} options={optionHostels} type={"Hostel"}></Filter>
+                        <Filter filterHandler={filterIssueCategoryHandler} options={optionCategory} type={"Category"}></Filter>
+                        <Filter filterHandler={filterAvailiabilityHandler} options={optionAvailiability} type={"Availiability"}></Filter>
+                    </div>
+                    {filteredComplaints.length>0 ? filteredComplaints.map(elem => {
+                        return (
+                            <Card data={elem} key={elem._id} onAccept={onAccept} onReject={onReject} onEscalate={onEscalate} />
+                            )
+                    }) : <div className={classes.noComplaints}><BsEmojiSmileUpsideDown className={classes.smile}></BsEmojiSmileUpsideDown> No Complaints</div>}
+                </div>
+            }
         </div>
     );
 }

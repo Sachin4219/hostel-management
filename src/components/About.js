@@ -1,5 +1,5 @@
 import React from 'react';
-import { src } from './Navbar';
+import { src } from './UI/Navbar/Navbar';
 
 function About() {
     return (
