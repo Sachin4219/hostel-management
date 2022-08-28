@@ -31,7 +31,7 @@
 }
 
 
-.form_submit {
+#form_submit {
     width: 50%;
     padding: 0.7rem;
     font-size: 1.4rem;
@@ -68,7 +68,8 @@
     font-size: 1.3rem;
 }
 
-.category_box select {
+.category_box select,
+.availability_box select {
     font-size: 1.3rem;
     padding: 0.4rem 2rem;
     border-radius: 10px;

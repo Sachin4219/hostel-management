@@ -49,7 +49,8 @@
 }
 
 .register_model {
-    width: 65%;
+    overflow: hidden;
+    width: 75%;
     height: 90%;
     margin: auto;
     padding: 1rem;
