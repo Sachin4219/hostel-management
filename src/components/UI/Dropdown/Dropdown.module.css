@@ -1,0 +1,118 @@
+.select_wrapper {
+    position: relative;
+    user-select: none;
+    width: 200px;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: #394a6d;
+}
+
+.select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 300;
+    color: #3b3b3b;
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+    cursor: pointer;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #394a6d;
+}
+
+.custom_options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #394a6d;
+    border-top: 0;
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 0;
+    text-transform: capitalize;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.select.open .custom_options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.custom_option {
+    position: relative;
+    display: block;
+    padding: 0 18px;
+    font-size: 18px;
+    font-weight: 300;
+    color: #3b3b3b;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.custom_option:hover {
+    cursor: pointer;
+    background-color: #b2b2b2;
+}
+
+.custom_option.selected {
+    color: #ffffff;
+    background-color: #305c91;
+}
+
+/*  */
+
+.arrow {
+    position: relative;
+    height: 12px;
+    width: 12px;
+}
+
+.arrow::before,
+.arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.12rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.arrow::before {
+    left: -4px;
+    transform: rotate(45deg);
+    background-color: #394a6d;
+}
+
+.arrow::after {
+    left: 4px;
+    transform: rotate(-45deg);
+    background-color: #394a6d;
+}
+
+.open .arrow::before {
+    left: -4px;
+    transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+    left: 4px;
+    transform: rotate(45deg);
+}

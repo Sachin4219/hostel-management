@@ -110,6 +110,7 @@
     height: fit-content;
     padding: 6px 16px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 @media screen and (max-width:720px) {

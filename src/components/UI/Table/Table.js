@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import classes from "./Table.module.css"
 import { BsEmojiSmileUpsideDown} from "react-icons/bs"
+import Dropdown from "../Dropdown/Dropdown";
 
 const optionHostels = [
     { name: "Aryabhatta" },
@@ -111,9 +112,12 @@ const Table = () => {
             {isLoading? <h1>Loading</h1> : 
                 <div>
                     <div className={classes.filterContainer}>
-                        <Filter filterHandler={filterHostelHandler} options={optionHostels} type={"Hostel"}></Filter>
+                        <Dropdown onChange={filterHostelHandler} options={optionHostels} type={"Hostel"}></Dropdown>
+                        <Dropdown onChange={filterIssueCategoryHandler} options={optionCategory} type={"Category"}></Dropdown>
+                        <Dropdown onChange={filterAvailiabilityHandler} options={optionAvailiability} type={"Availability"}></Dropdown>
+                        {/* <Filter filterHandler={filterHostelHandler} options={optionHostels} type={"Hostel"}></Filter>
                         <Filter filterHandler={filterIssueCategoryHandler} options={optionCategory} type={"Category"}></Filter>
-                        <Filter filterHandler={filterAvailiabilityHandler} options={optionAvailiability} type={"Availiability"}></Filter>
+                        <Filter filterHandler={filterAvailiabilityHandler} options={optionAvailiability} type={"Availiability"}></Filter> */}
                     </div>
                     {filteredComplaints.length>0 ? filteredComplaints.map(elem => {
                         return (

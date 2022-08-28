@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 
 function Card(props) {
     const { onAccept, onReject, onEscalate } = props;
-
+    //selectively showing the description
+    const description = 
+                props.data.description ?
+                <div>
+                    <div className={classes.desc}>Description</div>
+                    <p className={classes.description}>
+                        {props.data.description}
+                    </p>
+                </div> :
+                <></>
+            
     return (
         <div className={classes.card}>
             <div className={classes.issueCategoryContainer}>
@@ -28,13 +38,9 @@ function Card(props) {
                     <div className={classes.iconTag}><HiClock></HiClock> {props.data.availiability}</div>
                 </div>
             </div>
-
-            <div>
-                <div className={classes.desc}>Description</div>
-                <p className={classes.description}>
-                    {props.data.description}
-                </p>
-            </div>
+            {description}
+            
+            
             <div className={classes.btnContainer}>
                 <div onClick={() => onAccept(props.data._id)}
                     className={classes.btn}
