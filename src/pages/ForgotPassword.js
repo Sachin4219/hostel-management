@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/forgot_pass.css';
 
 export default function Forgot_Pass() {
+    const [mail, setMail] = useState('');
+    const forgot_submit = (e) => {
+        e.preventDefault();
+        const forgot_data = {
+            "mail": mail
+        }
+        console.log(forgot_data);
+    }
     return (
         <div className="container">
-            <div className="reset_password">
+            <form className="reset_password" onSubmit={forgot_submit}>
                 <h2 className="reset_title">Forgot Password</h2>
                 <p className="detail">Please Enter the email address that you used to register, and we will send you and OTP to reset your Password</p>
-                <input type="text" className="reset_field" id="reset_field" placeholder='Enter Email' />
+                <input type="email" className="reset_field" id="reset_field" placeholder='Enter Email' required value={mail} onChange={(e) => {
+                    setMail(e.target.value)
+                }} />
                 <input type="submit" value="Reset My Password" className='reset_btn' />
                 <p className="sign_in">Return to <Link to="/student/login">Sign in</Link></p>
-            </div>
+            </form>
         </div>
     );
 }

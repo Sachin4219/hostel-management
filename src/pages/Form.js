@@ -54,10 +54,10 @@ export default function Form() {
                                 setTime(e.target.value);
                             }} >
                                 <option>Timing</option>
-                                <option>9AM to 12PM</option>
-                                <option>12PM to 3PM</option>
-                                <option>3PM to 6PM</option>
-                                <option >6PM to 9PM</option>
+                                <option>10AM to 12PM</option>
+                                <option>12PM to 2PM</option>
+                                <option>2PM to 4PM</option>
+                                <option >2PM to 6PM</option>
                             </select>
                         </div>
                         <textarea name="desc" id="description" className="description" placeholder='Description' value={description} onChange={(e) => {
