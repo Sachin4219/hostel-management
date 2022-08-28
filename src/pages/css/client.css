@@ -1,0 +1,62 @@
+.quickActionBox {
+    width: 100%;
+    border: 1px solid #273272;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: #273272;
+    font-family: 'PT Sans Caption', sans-serif;
+    padding: 1.5rem;
+}
+
+.quickActionBox:hover {
+    box-shadow: inset 576px 0 0 0 #273272;
+    color: white;
+    transition: .3s;
+}
+
+.quickActionBox .icon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.quickActionBox .title {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.quickActionBox .title:hover {
+    text-decoration: underline;
+}
+
+.clientContent {
+    padding: 4rem 8rem;
+}
+
+.clientContent h1 {
+    color: #273272;
+}
+
+.clientContent a {
+    width: 45%;
+    text-decoration: none;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+.quickActionBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}

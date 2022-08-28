@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const src = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Indian_Institute_of_Technology_Bhubaneswar_Logo.svg/1200px-Indian_Institute_of_Technology_Bhubaneswar_Logo.svg.png';
 
-function Navbar() {
+function HomeNavbar(props) {
 
     const [menu, setMenu] = useState('menu hidden');
     const onClick = () => {
@@ -27,21 +28,36 @@ function Navbar() {
                     </svg>
                 </div>
                 <ul className='large-tabs'>
-                    <a href='/'><li>Admin Login</li></a>
-                    <a href='/'><li>Student Login</li></a>
-                    <a href='/'><li>Register</li></a>
+                    <a href={props.link1}><li>{props.tab1}</li></a>
+                    <a href={props.link2}><li>{props.tab2}</li></a>
+                    <a href={props.link3}><li>{props.tab3}</li></a>
                 </ul>
             </div>
             <div className={menu}>
                 <ul className='visible'>
-                    <a href='/'><li>Admin Login</li></a>
-                    <a href='/'><li>Student Login</li></a>
-                    <a href='/'><li>Register</li></a>
+                    <a href={props.link1}><li>{props.tab1}</li></a>
+                    <a href={props.link2}><li>{props.tab2}</li></a>
+                    <a href={props.link3}><li>{props.tab3}</li></a>
                 </ul>
             </div>
         </nav>
     );
 }
 
-export default Navbar;
+HomeNavbar.propTypes = {
+    tab1: PropTypes.string.isRequired,
+    tab2: PropTypes.string.isRequired,
+    tab3: PropTypes.string.isRequired,
+    link1: PropTypes.string.isRequired,
+    link2: PropTypes.string.isRequired,
+    link3: PropTypes.string.isRequired
+}
+
+HomeNavbar.defaultProp = {
+    tab1: 'Tab 1',
+    tab2: 'Tab 2',
+    tab3: 'Tab 3'
+}
+
+export default HomeNavbar;
 export { src };
