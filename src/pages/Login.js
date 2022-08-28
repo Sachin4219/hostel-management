@@ -36,7 +36,7 @@ export default function Login() {
                             <button className="submit_login" id="submit_login">Sign In</button>
                         </div>
                         <div className="new">
-                            <p>New here? <Link to="/">Create New Account</Link></p>
+                            <p>New here? <Link to="/student/register">Create New Account</Link></p>
                         </div>
                     </div>
                 </div>

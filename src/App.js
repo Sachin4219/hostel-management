@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route exact path='client' element={<Client />}> </Route>
         <Route exact path='profile' element={<h1>Profile</h1>}> </Route>
-        <Route exact path='login' element={<Login />}> </Route>
-        <Route exact path='register' element={<Register />}> </Route>
+        <Route exact path='student/login' element={<Login />}> </Route>
+        <Route exact path='student/register' element={<Register />}> </Route>
         <Route exact path='form' element={<Form />}> </Route>
         <Route exact path='otp' element={<Otp />}> </Route>
         <Route exact path='forgot' element={<ForgotPassword />}> </Route>
