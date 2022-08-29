@@ -13,7 +13,6 @@ export default function Login() {
             username: username,
             password: password
         }
-        // console.log(login_data);
 
         try{
         axios.post("http://localhost:4000/student/login", login_data)
@@ -27,7 +26,6 @@ export default function Login() {
         catch(error){
             console.log("error in : ",error.response.data)
         }
-        // .then(data => {console.log(data.message)})
     }
     return (
         <div className="container">

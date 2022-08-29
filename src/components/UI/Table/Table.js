@@ -1,5 +1,5 @@
 import Card from "../ComplaintCard/Card";
-import Filter from "../Filter/Filter";
+// import Filter from "../Filter/Filter";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import classes from "./Table.module.css"
@@ -31,7 +31,26 @@ const Table = () => {
 
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [isLoading,setLoading] = useState(true)
+
+
     useEffect(() => {
+        const token = localStorage.getItem("token")
+        async function verifyToken(){
+            const config={
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            }  
+            try {
+                const resp = await axios.get("http://localhost:4000/admin/check_login", config)
+                if(resp.data.verified)
+                    setLoading(false)
+            } catch (error) {
+                window.location="/login"
+            }
+        }
+        verifyToken()
+
         const fetchData = async() => {
             try {
                 setLoading(true)
@@ -39,6 +58,7 @@ const Table = () => {
                 setComplaints(resp.data.complaints);
                 setFilteredComplaints(resp.data.complaints)
                 setLoading(false)
+                console.log(resp.data.complaints)
             } catch (error) {
                 setLoading(false)
                 console.log("[Get Complaints]",error)
@@ -94,13 +114,13 @@ const Table = () => {
 
 
     function onAccept(id) {
-        axios.post("http://localhost:5000/complaints", { id: id, status: "pending", escalated: false })
+        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "pending", escalated: false })
     }
     function onReject(id) {
-        axios.post("http://localhost:5000/complaints", { id: id, status: "rejected", escalated: false })
+        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "rejected", escalated: false })
     }
     function onEscalate(id) {
-        axios.post("http://localhost:5000/complaints", { id: id, status: "pending", escalated: true })
+        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "pending", escalated: true })
     }
 
     

@@ -1,27 +1,69 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './css/form.css';
 
 export default function ComplaintForm() {
     const [name, setName] = useState('');
     const [hostel, setHostel] = useState('');
     const [room, setRoom] = useState('');
+    const [phone, setPhone] = useState('');
     const [category, setCategory] = useState('');
     const [time, setTime] = useState('');
     const [description, setDescription] = useState('');
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect(()=>{
+        setLoading(true)
+        const token = localStorage.getItem("token")
+        async function verifyToken(){
+            const config={
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            }  
+            try {
+                const resp = await axios.get("http://localhost:4000/student/check_login", config)
+                if(resp.data.verified)
+                    setLoading(false)
+            } catch (error) {
+                window.location="/login"
+            }
+        }
+        verifyToken()
+    },[])
+
+
     const submit_func = (e) => {
         e.preventDefault();
         const form_data = {
             "name": name,
-            "hostel": hostel,
-            "room": room,
-            "category": category,
-            "time": time,
-            "Description": description
+            "hostelName": hostel,
+            "roomNumber": room,
+            "phoneNumber":phone,
+            "issueCategory": category,
+            "availiability": time,
+            "description": description
         }
+        const token = localStorage.getItem("token")
         console.log(form_data);
+        const config={
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        }
+        axios.post("http://localhost:4000/student/complaints", form_data, config)
+        .then(res => {
+            console.log(res.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
     return (
+
         <div className="container">
+            {isLoading ? <h1>Loading...</h1> :
+
             <div className="form">
                 <div className="form_model">
                     <div className="form_header">Customer complaint form</div>
@@ -36,6 +78,9 @@ export default function ComplaintForm() {
                         <input type="text" className="room_no" id="room_no" placeholder='Room Number' value={room} onChange={(e) => {
                             setRoom(e.target.value);
                         }} />
+                        <input type="text" className="room_no" id="phone_no" placeholder='Phone Number' value={phone} onChange={(e) => {
+                            setPhone(e.target.value);
+                        }} />
                         <div className="category_box">
                             <label htmlFor='category'>Category of Issue</label>
                             <select name="category" id="category" className="category" onChange={(e) => {
@@ -43,9 +88,9 @@ export default function ComplaintForm() {
                             }}
                                 value={category} >
                                 <option>Category</option>
-                                <option>Cleaniness</option>
-                                <option>Water</option>
-                                <option>Electricity</option>
+                                <option>cleanliness</option>
+                                <option>water</option>
+                                <option>electricity</option>
                             </select>
                         </div>
                         <div className="availability_box">
@@ -65,9 +110,9 @@ export default function ComplaintForm() {
                         }}></textarea>
                         <input type='submit' className="form_submit" id="form_submit" value="submit" />
                     </form>
-
                 </div>
             </div>
+            }       
         </div >
     )
 }
