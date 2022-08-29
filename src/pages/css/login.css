@@ -1,5 +1,6 @@
 .loginContainer,
-.registerContainer {
+.registerContainer,
+.complaintContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +13,8 @@
 }
 
 .login,
-.register_box {
+.register_box,
+.complaint_box {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
@@ -23,8 +25,54 @@
     max-height: 530px;
 }
 
+.complaint_box {
+    width: 60%;
+    min-height: 900px;
+}
+
 .register_box {
     min-height: 620px;
+}
+
+.category_box,
+.availability_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.category_box label,
+.availability_box label {
+    font-size: 1.2rem;
+    color: #273272;
+    font-weight: 600;
+}
+
+.form_input_fields textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border-radius: 5px;
+    padding: 1rem;
+    border: 1px solid #273272;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.form_input_fields textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.form_submit {
+    padding: 1rem 2rem;
+    border: none;
+    color: white;
+    background-color: #273272;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 30%;
+    margin: 1rem auto;
 }
 
 .login .left,
@@ -86,6 +134,10 @@
     .register_box .left {
         font-size: 1.3rem;
     }
+
+    .complaint_box {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 990px) {
@@ -131,6 +183,10 @@
     .register_box .right {
         width: 100%;
     }
+
+    .complaint_box {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 790px) {
@@ -139,6 +195,10 @@
     .loginContainer {
         padding: 3rem 1.5rem;
     }
+
+    .complaint_box {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 650px) {
@@ -146,6 +206,15 @@
     .loginContainer,
     .registerContainer {
         padding: 3rem .5rem;
+    }
+
+    .complaint_box {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .complaintContainer {
+        padding: 3rem 0;
     }
 }
 
@@ -168,6 +237,16 @@
         width: 100%;
         height: 100%;
         box-shadow: none;
+    }
+
+    .complaint_box {
+        width: 100%;
+        height: 100%;
+        box-shadow: none
+    }
+
+    .complaintContainer {
+        padding: 3rem 0;
     }
 }
 

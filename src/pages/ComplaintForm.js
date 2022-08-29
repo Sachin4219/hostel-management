@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import TextInput from '../components/TextInput';
 import './css/form.css';
+import './css/login.css';
 
 export default function ComplaintForm() {
     const [name, setName] = useState('');
@@ -12,25 +14,25 @@ export default function ComplaintForm() {
     const [description, setDescription] = useState('');
     const [isLoading, setLoading] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true)
         const token = localStorage.getItem("token")
-        async function verifyToken(){
-            const config={
-                headers:{
+        async function verifyToken() {
+            const config = {
+                headers: {
                     Authorization: `Bearer ${token}`
                 }
-            }  
+            }
             try {
                 const resp = await axios.get("https://still-refuge-61452.herokuapp.com/student/check_login", config)
-                if(resp.data.verified)
+                if (resp.data.verified)
                     setLoading(false)
             } catch (error) {
-                window.location="/login"
+                window.location = "/login"
             }
         }
         verifyToken()
-    },[])
+    }, [])
 
 
     const submit_func = (e) => {
@@ -39,49 +41,51 @@ export default function ComplaintForm() {
             "name": localStorage.getItem("username"),
             "hostelName": hostel,
             "roomNumber": room,
-            "phoneNumber":phone,
+            "phoneNumber": phone,
             "issueCategory": category,
             "availiability": time,
             "description": description
         }
         const token = localStorage.getItem("token")
         console.log(form_data);
-        const config={
-            headers:{
+        const config = {
+            headers: {
                 Authorization: `Bearer ${token}`
             }
         }
         axios.post("https://still-refuge-61452.herokuapp.com/student/complaints", form_data, config)
-        .then(res => {
-            console.log(res.data)
-            window.location = "/client-dashboard"
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+            .then(res => {
+                console.log(res.data)
+                window.location = "/client-dashboard"
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
     return (
 
-        <div className="container">
+        <div className="complaintContainer">
             {isLoading ? <h1>Loading...</h1> :
-
-            <div className="form">
-                <div className="form_model">
-                    <div className="form_header">Customer complaint form</div>
+                <div className="complaint_box">
 
                     <form className="form_input_fields" onSubmit={submit_func}>
-                        <input type="text" className="name" id="name" placeholder='FullName' value={name} onChange={(e) => {
+                        <h1>Student Complaint Form</h1>
+                        <TextInput id="name" name='name' label='Full Name' placeholder='Enter your name' value={name} onChange={(e) => {
                             setName(e.target.value);
                         }} />
-                        <input type="text" className="hostel_name" id="hostel_name" placeholder='Hostel Name' value={hostel} onChange={(e) => {
+
+                        <TextInput name="hostel_name" id="hostel_name" label='Hostel Name' placeholder='Enter your hostel name' value={hostel} onChange={(e) => {
                             setHostel(e.target.value);
                         }} />
-                        <input type="text" className="room_no" id="room_no" placeholder='Room Number' value={room} onChange={(e) => {
+
+                        <TextInput name="room_no" id="room_no" label='Room Number' placeholder='Enter your room number' value={room} onChange={(e) => {
                             setRoom(e.target.value);
                         }} />
-                        <input type="text" className="room_no" id="phone_no" placeholder='Phone Number' value={phone} onChange={(e) => {
+
+                        <TextInput name="phone_no" id="phone_no" label='Phone Number' placeholder='Enter your phone number' value={phone} onChange={(e) => {
                             setPhone(e.target.value);
                         }} />
+
                         <div className="category_box">
                             <label htmlFor='category'>Category of Issue</label>
                             <select name="category" id="category" className="category" onChange={(e) => {
@@ -108,12 +112,11 @@ export default function ComplaintForm() {
                         </div>
                         <textarea name="desc" id="description" className="description" placeholder='Description' value={description} onChange={(e) => {
                             setDescription(e.target.value)
-                        }}></textarea>
-                        <input type='submit' className="form_submit" id="form_submit" value="submit" />
+                        }} />
+                        <input type='submit' className="form_submit" id="form_submit" value="Submit" />
                     </form>
                 </div>
-            </div>
-            }       
+            }
         </div >
     )
 }
