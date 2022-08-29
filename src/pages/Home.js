@@ -7,7 +7,7 @@ import Image from '../components/Image';
 function Home() {
   return (
     <>
-      <Navbar tab1='Admin Login' tab2='Student Login' tab3='Register' link1='/admin-login' link2='/student-login' link3='/register' />
+      <Navbar tab1='Admin Login' tab2='Student Login' tab3='Register' link1='/admin-login' link2='/client-login' link3='/register' />
       <Image />
       <Content />
       <Footer />

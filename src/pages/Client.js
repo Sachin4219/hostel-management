@@ -7,7 +7,7 @@ import './css/client.css';
 function Client() {
     return (
         <>
-            <Navbar tab1='Profile' tab2='File Complaint' tab3='Logout' link1='/client/profile' link2='/' link3='/' />
+            <Navbar tab1='Profile' tab2='File Complaint' tab3='Logout' link1='/client/profile' link2='/client/complaint' link3='/' />
             <Image />
             <ClientContent />
             <Footer />

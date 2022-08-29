@@ -6,7 +6,8 @@ function QuickAction(props) {
         <div className="quickActionBox">
             <span className="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className={props.iconClass} viewBox="0 0 16 16">
-                    <path d={props.path} />
+                    <path d={props.path2} />
+                    <path d={props.path} fillRule={props.fillRule} />
                 </svg>
                 {props.number}
             </span>
@@ -20,6 +21,8 @@ function QuickAction(props) {
 QuickAction.propTypes = {
     iconClass: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
+    path2: PropTypes.string,
+    fillRule: PropTypes.string,
     number: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired
 }
