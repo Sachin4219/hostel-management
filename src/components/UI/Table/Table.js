@@ -31,7 +31,7 @@ const Table = () => {
 
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [isLoading,setLoading] = useState(true)
-
+    const [verified, setVerified]= useState(false)
 
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -43,29 +43,41 @@ const Table = () => {
             }  
             try {
                 const resp = await axios.get("http://localhost:4000/admin/check_login", config)
-                if(resp.data.verified)
+                if(resp.data.verified){
                     setLoading(false)
+                    setVerified(true)
+                }
             } catch (error) {
                 window.location="/login"
             }
         }
         verifyToken()
+    })
 
+    useEffect(() => {
         const fetchData = async() => {
+            const officerType = localStorage.getItem("username")
+            const token = localStorage.getItem("token")
+            const config={
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            }  
             try {
-                setLoading(true)
-                const resp= await axios.get("http://localhost:4000/admin/complaints") 
-                setComplaints(resp.data.complaints);
-                setFilteredComplaints(resp.data.complaints)
-                setLoading(false)
-                console.log(resp.data.complaints)
-            } catch (error) {
-                setLoading(false)
-                console.log("[Get Complaints]",error)
-            }
+            setLoading(true)
+            const resp= await axios.get(`http://localhost:4000/admin/complaints/${officerType}`,config) 
+            setComplaints(resp.data.complaints);
+            setFilteredComplaints(resp.data.complaints)
+            setLoading(false)
+            console.log(resp.data.complaints)
+        } catch (error) {
+            setLoading(false)
+            console.log("[Get Complaints]",error)
         }
-        fetchData()
-    },[])
+        }
+        if(verified)
+            fetchData()
+    },[verified])
 
     function filterHostelHandler(selectedHostel) {
         setFilteredHostel(selectedHostel);
@@ -114,13 +126,16 @@ const Table = () => {
 
 
     function onAccept(id) {
-        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "pending", escalated: false })
+        const officerType = localStorage.getItem("username")
+        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: false })
     }
     function onReject(id) {
-        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "rejected", escalated: false })
+        const officerType = localStorage.getItem("username")
+        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "rejected", escalated: false })
     }
     function onEscalate(id) {
-        axios.put("http://localhost:4000/admin/complaints", { _id: id, status: "pending", escalated: true })
+        const officerType = localStorage.getItem("username")
+        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: true })
     }
 
     

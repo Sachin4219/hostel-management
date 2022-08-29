@@ -94,6 +94,7 @@ nav .menu li:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  min-width: 218px;
   max-width: 320px;
   height: 215px;
   border: 1px solid gainsboro;
@@ -218,7 +219,6 @@ nav .menu li:hover {
 footer {
   background: url("http://cvitanic.info/wp-content/uploads/2016/05/background-main.jpg") center no-repeat;
   background-size: cover;
-  height: auto;
   width: 100vw;
   display: flex;
   font-family: 'Montserrat', sans-serif;

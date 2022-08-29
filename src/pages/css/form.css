@@ -1,4 +1,160 @@
-.form {
+form {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 0rem 4rem;
+}
+
+form h1 {
+    color: #273272;
+}
+
+form .hidden {
+    display: none;
+}
+
+form .visible {
+    display: block;
+}
+
+form select {
+    border: 2px solid #273272;
+    background-color: white;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    padding: .2rem;
+    font-size: 1rem;
+    color: #273272;
+    float: right;
+}
+
+.passwordInput,
+.emailInput,
+.textInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.passwordInput input,
+.emailInput input,
+.textInput input {
+    width: 100%;
+    border: 2px solid #273272;
+    padding: 1rem;
+    color: black;
+    background-color: white;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+.passwordInput input:focus,
+.emailInput input:focus,
+.textInput input:focus {
+    outline: none;
+    background-color: rgb(210, 233, 245);
+}
+
+.passwordInput label,
+.emailInput label,
+.textInput label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2f3d8e;
+}
+
+.forgetRemem {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.remember {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.remember input {
+    transform: scale(1.3);
+}
+
+.remember label {
+    margin-left: .5rem;
+}
+
+form button[type=submit] {
+    border: none;
+    padding: .8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #273272;
+    color: white;
+    font-family: 'PT Sans Caption', sans-serif;
+    margin-bottom: 1rem;
+}
+
+form button[type=submit]:hover {
+    background-color: #4855a1;
+}
+
+@media screen and (max-width: 990px) {
+
+    .passwordInput input,
+    .emailInput input,
+    .textInput input {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+
+    .remember {
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .passwordInput input,
+    .emailInput input,
+    .textInput input {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .forgetRemem {
+        justify-content: space-between;
+    }
+
+    .remember {
+        margin-right: 0rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .forgetRemem {
+        font-size: .9rem;
+    }
+
+    form select {
+        width: 170px;
+        height: 40px;
+        padding: .2rem;
+        font-size: .9rem;
+        color: #273272;
+        float: right;
+    }
+}
+
+
+
+
+
+
+ .form {
     width: 35%;
     height: 80%;
     background-color: #fff;
@@ -31,7 +187,7 @@
 }
 
 
-#form_submit {
+.form_submit {
     width: 50%;
     padding: 0.7rem;
     font-size: 1.4rem;
@@ -68,8 +224,7 @@
     font-size: 1.3rem;
 }
 
-.category_box select,
-.availability_box select {
+.category_box select {
     font-size: 1.3rem;
     padding: 0.4rem 2rem;
     border-radius: 10px;
@@ -123,4 +278,4 @@
     .form {
         width: 60%;
     }
-}
+} 

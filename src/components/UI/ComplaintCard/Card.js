@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 function Card(props) {
     const { onAccept, onReject, onEscalate } = props;
+    const officerType = localStorage.getItem("username");
+
     //selectively showing the description
     const description = 
                 props.data.description ?
@@ -22,7 +24,7 @@ function Card(props) {
                     {props.data.issueCategory}
                 </span>
                 <div className={classes.date}>
-                    {props.data.date}
+                    {props.data.date ? props.data.date.slice(0,10).split("-").join("  / "): ""}
                 </div>
             </div>
             <div className={classes.flexRow1}>
@@ -40,24 +42,36 @@ function Card(props) {
             </div>
             {description}
             
-            
-            <div className={classes.btnContainer}>
-                <div onClick={() => onAccept(props.data._id)}
-                    className={classes.btn}
-                    style={{ backgroundColor: "#22c55e", color: "white" }} >
-                    Accept
+            {
+                onAccept ?
+                <div className={classes.btnContainer}>
+                    <div onClick={() => onAccept(props.data._id)}
+                        className={classes.btn}
+                        style={{ backgroundColor: "#22c55e", color: "white" }} >
+                        Accept
+                    </div>
+                    <div onClick={() => onReject(props.data._id)}
+                        className={classes.btn}
+                        style={{ backgroundColor: "#ef4444", color: "white" }}  >
+                        Reject
+                    </div>
+                    { officerType==="Officer3"?<></>:
+                        <div onClick={() => onEscalate(props.data._id)}
+                            className={classes.btn}
+                            style={{ backgroundColor: "#3b82f6", color: "white" }}>
+                            Escalate
+                        </div>
+                    }       
                 </div>
-                <div onClick={() => onReject(props.data._id)}
-                    className={classes.btn}
-                    style={{ backgroundColor: "#ef4444", color: "white" }}  >
-                    Reject
+                :
+                <div className={classes.btnContainer}>
+                    <div
+                        className={classes.btn}
+                        style={{ backgroundColor: "#0c4a6e", color: "white" }} >
+                        {props.data.status}
+                    </div>
                 </div>
-                <div onClick={() => onEscalate(props.data._id)}
-                    className={classes.btn}
-                    style={{ backgroundColor: "#3b82f6", color: "white" }}>
-                    Escalate
-                </div>
-            </div>
+            }
 
         </div>
     );

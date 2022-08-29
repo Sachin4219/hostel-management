@@ -29,6 +29,10 @@
     font-weight: 600;
 }
 
+.quickActionBox svg {
+    margin-right: 0.7rem;
+}
+
 .quickActionBox .title {
     width: 100%;
     font-size: 2rem;
@@ -40,15 +44,18 @@
     text-decoration: underline;
 }
 
-.clientContent {
+.clientContent,
+.adminContent {
     padding: 4rem 8rem;
 }
 
-.clientContent h1 {
+.clientContent h1,
+.adminContent h1 {
     color: #273272;
 }
 
-.clientContent a {
+.clientContent a,
+.adminContent a {
     width: 45%;
     text-decoration: none;
     font-family: 'PT Sans Caption', sans-serif;

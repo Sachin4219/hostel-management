@@ -7,26 +7,27 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Client() {
-    const [isLoading,setLoading] = useState(true)
-    useEffect(()=>{
+    const [isLoading, setLoading] = useState(true)
+    useEffect(() => {
         setLoading(true)
         const token = localStorage.getItem("token")
-        async function verifyToken(){
-            const config={
-                headers:{
+        async function verifyToken() {
+            const config = {
+                headers: {
                     Authorization: `Bearer ${token}`
                 }
-            }  
+            }
             try {
                 const resp = await axios.get("http://localhost:4000/student/check_login", config)
-                if(resp.data.verified)
+                if (resp.data.verified)
                     setLoading(false)
             } catch (error) {
-                window.location="/login"
+                window.location = "student-login"
             }
         }
         verifyToken()
-    },[])
+    }, [])
+
     return (
         <>
             {isLoading ? <h1>Loading...</h1> :
@@ -36,7 +37,7 @@ function Client() {
                     <ClientContent />
                     <Footer />
                 </div>
-             }
+            }
         </>
     );
 }

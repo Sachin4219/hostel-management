@@ -1,12 +1,161 @@
-.container {
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5rem 4rem;
+}
+
+.login {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+    height: 100vh;
+    min-height: 530px;
+    max-height: 530px;
+}
+
+.login .left {
+    background: url(../../Assets/login_background.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 1.5rem;
+    width: 50%;
+    height: 100vh;
+    max-height: 530px;
+    min-height: 530px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.login .right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+    form {
+        padding: 0rem 3rem;
+    }
+
+    .loginContainer {
+        padding: 4rem;
+    }
+
+    .login .left {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    form {
+        padding: 0rem 2rem;
+    }
+
+    .loginContainer {
+        padding: 4rem;
+    }
+
+    .login {
+        max-height: 500px;
+    }
+
+    .login .left {
+        font-size: 1.1rem;
+        max-height: 500px;
+    }
+
+    .login .right {
+        max-height: 500px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    form {
+        padding: 0 3rem;
+    }
+
+    .login {
+        width: 80%;
+    }
+
+    .login .left {
+        display: none;
+    }
+
+    .login .right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .loginContainer {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .loginContainer {
+        padding: 3rem .5rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    form {
+        padding: 0 2rem;
+    }
+
+    .login {
+        height: 100%;
+        width: 85%;
+    }
+
+    .loginContainer {
+        padding: 3rem 0rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    form {
+        padding: 0 1.5rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .login {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+    }
+
+    .loginContainer {
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-image: url(../../Assets/background.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .login_box {
@@ -231,4 +380,4 @@
     .formRight {
         flex-basis: 55%;
     }
-}
+} */
