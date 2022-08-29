@@ -21,7 +21,7 @@ export default function Register() {
         axios.post("http://localhost:4000/student/register", register_data)
         .then(response => {
             console.log(response)
-            window.location = "/login"
+            window.location = "/student-login"
         })
 
         }

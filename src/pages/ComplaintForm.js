@@ -36,7 +36,7 @@ export default function ComplaintForm() {
     const submit_func = (e) => {
         e.preventDefault();
         const form_data = {
-            "name": name,
+            "name": localStorage.getItem("username"),
             "hostelName": hostel,
             "roomNumber": room,
             "phoneNumber":phone,
@@ -54,6 +54,7 @@ export default function ComplaintForm() {
         axios.post("http://localhost:4000/student/complaints", form_data, config)
         .then(res => {
             console.log(res.data)
+            window.location = "/client-dashboard"
         })
         .catch(err=>{
             console.log(err)
