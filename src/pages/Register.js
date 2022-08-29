@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './css/register.css';
-import { faArrowLeft, faKey, faMailBulk, faUser, faUserAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaArrowLeft, FaKey, FaMailBulk, FaUserAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Register() {
     const [user, setUser] = useState('');
@@ -16,7 +16,18 @@ export default function Register() {
             "password": password,
             "email": email
         }
-        console.log(register_data);
+        // console.log(register_data);
+        try{
+        axios.post("http://localhost:4000/student/register", register_data)
+        .then(response => {
+            console.log(response)
+            window.location = "/login"
+        })
+
+        }
+        catch(error) {
+            console.log("error in : ",error.response.data)
+        }
     }
     return (
         <div className="container">
@@ -30,32 +41,32 @@ export default function Register() {
                         <div className="register_header">Register Here</div>
                         <div className="register_input_fields">
                             <div className="register_input_box">
-                                <FontAwesomeIcon icon={faUserAlt} />
+                                <FaUserAlt/>
                                 <input type="text" className='user_reg_input' id='user_reg_input' placeholder='Username' required value={user} onChange={(e) => {
                                     setUser(e.target.value)
                                 }} />
                             </div>
                             <div className="register_input_box">
-                                <FontAwesomeIcon icon={faKey} />
+                                <FaKey/>
                                 <input type="password" className='pass_reg_input' id='pass_reg_input' placeholder='Password' required value={password} onChange={(e) => {
                                     setPassword(e.target.value)
                                 }} />
                             </div>
                             <div className="register_input_box">
-                                <FontAwesomeIcon icon={faKey} />
+                                <FaKey/>
                                 <input type="password" className='cnf_pass_input' id='cnf_pass_input' placeholder='Confirm Password' required value={cnfPassword} onChange={(e) => {
                                     setCnfPassword(e.target.value)
                                 }} />
                             </div>
                             <div className="register_input_box">
-                                <FontAwesomeIcon icon={faMailBulk} />
+                                <FaMailBulk/>
                                 <input type="email" className='mail_input' id='mail_input' placeholder='Email' required value={email} onChange={(e) => {
                                     setEmail(e.target.value)
                                 }} />
                             </div>
                         </div>
                         <div className="back_login">
-                            <FontAwesomeIcon icon={faArrowLeft} />
+                            <FaArrowLeft/>
                             <Link to="/student/login">Back to login</Link>
                         </div>
                         <div className='reg_sub_btn'>

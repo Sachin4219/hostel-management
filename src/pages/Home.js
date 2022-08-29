@@ -9,7 +9,7 @@ function Home() {
   return (
     // <SimpleContainer>
     <>
-      <Navbar />
+    <Navbar/>
       <Image />
       <Content />
       <Footer />

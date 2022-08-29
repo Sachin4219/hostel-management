@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/form.css';
 
-export default function Form() {
+export default function ComplaintForm() {
     const [name, setName] = useState('');
     const [hostel, setHostel] = useState('');
     const [room, setRoom] = useState('');

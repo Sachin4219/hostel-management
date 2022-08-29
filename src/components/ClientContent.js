@@ -13,10 +13,10 @@ function ClientContent() {
         <div className="clientContent">
             <h1>Quick Actions : </h1>
             <div className="quickActionBlock">
-                <a href='/client/profile'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={1} title='Student Profile' /></a>
-                <a href='/'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={2} title='File Complaint' /></a>
-                <a href='/'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={3} title='Click here' /></a>
-                <a href='/'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={4} title='Click here' /></a>
+                <a href='/student/profile'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={1} title='Student Profile' /></a>
+                <a href='/student/complaint'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={2} title='File Complaint' /></a>
+                {/* <a href='/'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={3} title='Click here' /></a> */}
+                {/* <a href='/'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={4} title='Click here' /></a> */}
             </div>
         </div>
     );

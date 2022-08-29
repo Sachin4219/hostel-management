@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './css/login.css';
-import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaUser, FaLock} from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -10,10 +10,24 @@ export default function Login() {
     const login_submit = (e) => {
         e.preventDefault();
         const login_data = {
-            "username": username,
-            "password": password
+            username: username,
+            password: password
         }
-        console.log(login_data);
+        // console.log(login_data);
+
+        try{
+        axios.post("http://localhost:4000/student/login", login_data)
+        .then(response => {
+            console.log(response)
+            localStorage.setItem("token",response.data.data.token)
+            localStorage.setItem("username",response.data.data.username)
+            window.location = "/client"
+        })
+        }
+        catch(error){
+            console.log("error in : ",error.response.data)
+        }
+        // .then(data => {console.log(data.message)})
     }
     return (
         <div className="container">
@@ -27,13 +41,13 @@ export default function Login() {
                         <div className="signin">Sign In</div>
                         <div className="input_fields">
                             <div className="input_box">
-                                <FontAwesomeIcon icon={faUser} />
+                                <FaUser/>
                                 <input type="text" className='user_input' id='user_input' placeholder='Enter Username' value={username} onChange={(e) => {
                                     setUsername(e.target.value)
                                 }} />
                             </div>
                             <div className="input_box">
-                                <FontAwesomeIcon icon={faLock} />
+                                <FaLock/>
                                 <input type="password" className='pass_input' id='pass_input' placeholder='Enter Password' value={password} onChange={(e) => {
                                     setPassword(e.target.value)
                                 }} />

@@ -15,6 +15,12 @@ function HomeNavbar(props) {
             setMenu('menu visible');
         }
     }
+    function onLogout(){
+        window.localStorage.clear()
+        window.location="/"
+        return "";
+    }
+
     return (
         <nav>
             <div className="left">
@@ -30,7 +36,10 @@ function HomeNavbar(props) {
                 <ul className='large-tabs'>
                     <a href={props.link1}><li>{props.tab1}</li></a>
                     <a href={props.link2}><li>{props.tab2}</li></a>
-                    <a href={props.link3}><li>{props.tab3}</li></a>
+                    {props.tab3==="Logout"
+                        ? <a href={"#"} onClick={onLogout}><li>{props.tab3}</li></a>
+                        : <a href={ props.link3 }><li>{props.tab3}</li></a>
+                    }   
                 </ul>
             </div>
             <div className={menu}>
