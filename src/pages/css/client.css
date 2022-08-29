@@ -12,6 +12,7 @@
     color: #273272;
     font-family: 'PT Sans Caption', sans-serif;
     padding: 1.5rem;
+    min-width: 374px;
 }
 
 .quickActionBox:hover {
@@ -66,4 +67,61 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1060px) {
+    .quickActionBlock {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .clientContent a,
+    .adminContent a {
+        width: 100%;
+    }
+
+    .quickActionBox:hover {
+        box-shadow: inset 760px 0 0 0 #273272;
+        color: white;
+        transition: .3s;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .clientContent,
+    .adminContent {
+        padding: 4rem 6rem;
+    }
+}
+
+@media screen and (max-width: 570px) {
+
+    .clientContent,
+    .adminContent {
+        padding: 4rem 4rem;
+    }
+}
+
+@media screen and (max-width: 510px) {
+
+    .clientContent,
+    .adminContent {
+        padding: 4rem 2rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+
+    .clientContent,
+    .adminContent {
+        padding: 4rem 1rem;
+    }
+
+    .quickActionBox {
+        min-width: 300px;
+    }
 }

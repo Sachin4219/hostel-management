@@ -5,10 +5,10 @@ function FeaturesBlock() {
     return (
         <>
             <div className="featuresBlock">
-                <Feature />
-                <Feature />
-                <Feature />
-                <Feature />
+                <Feature title='Student Life Cycle' description='Manage Detailed Student Hostel Records and Complaints' />
+                <Feature title='Student Life Cycle' description='Manage Detailed Student Hostel Records and Complaints' />
+                <Feature title='Student Life Cycle' description='Manage Detailed Student Hostel Records and Complaints' />
+                <Feature title='Student Life Cycle' description='Manage Detailed Student Hostel Records and Complaints' />
             </div>
         </>
     );
