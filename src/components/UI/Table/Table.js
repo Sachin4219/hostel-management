@@ -42,7 +42,7 @@ const Table = () => {
                 }
             }  
             try {
-                const resp = await axios.get("http://localhost:4000/admin/check_login", config)
+                const resp = await axios.get("https://still-refuge-61452.herokuapp.com/admin/check_login", config)
                 if(resp.data.verified){
                     setLoading(false)
                     setVerified(true)
@@ -65,7 +65,7 @@ const Table = () => {
             }  
             try {
             setLoading(true)
-            const resp= await axios.get(`http://localhost:4000/admin/complaints/${officerType}`,config) 
+            const resp= await axios.get(`https://still-refuge-61452.herokuapp.com/admin/complaints/${officerType}`,config) 
             setComplaints(resp.data.complaints);
             setFilteredComplaints(resp.data.complaints)
             setLoading(false)
@@ -127,15 +127,18 @@ const Table = () => {
 
     function onAccept(id) {
         const officerType = localStorage.getItem("username")
-        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: false })
+        axios.put(`https://still-refuge-61452.herokuapp.com/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: false })
     }
     function onReject(id) {
         const officerType = localStorage.getItem("username")
-        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "rejected", escalated: false })
+        axios.put(`https://still-refuge-61452.herokuapp.com/admin/complaints/${officerType}`, { _id: id, status: "rejected", escalated: false })
     }
     function onEscalate(id) {
         const officerType = localStorage.getItem("username")
-        axios.put(`http://localhost:4000/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: true })
+        axios.put(`https://still-refuge-61452.herokuapp.com/admin/complaints/${officerType}`, { _id: id, status: "pending", escalated: true }).then(resp => {
+            setFilteredComplaints(filteredComplaints.filter(compl => compl._id!==id))
+            setComplaints(complaints.filter(compl => compl._id!==id))
+        })
     }
 
     

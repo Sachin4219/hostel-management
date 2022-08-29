@@ -19,13 +19,14 @@ const StudentTable = () => {
                 }
             }  
             try {
-                const resp = await axios.get("http://localhost:4000/student/check_login", config)
+                const resp = await axios.get("https://still-refuge-61452.herokuapp.com/student/check_login", config)
                 if(resp.data.verified){
                     setLoading(false)
                     setVerified(true)
                 }
             } catch (error) {
-                window.location="/student-login"
+                console.log(error)
+                // window.location="/student-login"
             }
         }
         verifyToken()
@@ -42,7 +43,7 @@ const StudentTable = () => {
             }  
             try {
             setLoading(true)
-            const resp= await axios.get(`http://localhost:4000/student/complaints/${username}`,config) 
+            const resp= await axios.get(`https://still-refuge-61452.herokuapp.com/student/complaints/${username}`,config) 
             setComplaints(resp.data.complaints);
             setLoading(false)
             console.log(resp.data.complaints)

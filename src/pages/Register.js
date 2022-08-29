@@ -18,7 +18,7 @@ export default function Register() {
         }
         // console.log(register_data);
         try{
-        axios.post("http://localhost:4000/student/register", register_data)
+        axios.post("https://still-refuge-61452.herokuapp.com/student/register", register_data)
         .then(response => {
             console.log(response)
             window.location = "/student-login"

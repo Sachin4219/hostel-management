@@ -18,7 +18,7 @@ function Client() {
                 }
             }
             try {
-                const resp = await axios.get("http://localhost:4000/student/check_login", config)
+                const resp = await axios.get("https://still-refuge-61452.herokuapp.com/student/check_login", config)
                 if (resp.data.verified)
                     setLoading(false)
             } catch (error) {
