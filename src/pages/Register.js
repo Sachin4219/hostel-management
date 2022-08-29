@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import './css/register.css';
-import { FaArrowLeft, FaKey, FaMailBulk, FaUserAlt } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import TextInput from '../components/TextInput';
+import EmailInput from '../components/EmailInput';
+import PasswordInput from '../components/PasswordInput';
 
 export default function Register() {
     const [user, setUser] = useState('');
@@ -16,66 +18,49 @@ export default function Register() {
             "password": password,
             "email": email
         }
-        // console.log(register_data);
-        try{
-        axios.post("http://localhost:4000/student/register", register_data)
-        .then(response => {
-            console.log(response)
-            window.location = "/student-login"
-        })
+        try {
+            axios.post("http://localhost:4000/student/register", register_data)
+                .then(response => {
+                    console.log(response)
+                    window.location = "/student-login"
+                })
 
         }
-        catch(error) {
-            console.log("error in : ",error.response.data)
+        catch (error) {
+            console.log("error in : ", error.response.data)
         }
     }
     return (
-        <div className="container">
+        <div className="registerContainer">
             <div className="register_box">
-                <div className="register_left">
-                    <h2>Welcome</h2>
-                    <p>Register Here</p>
+                <div className="register left">
+                    <h1>Welcome to Student Register</h1>
                 </div>
-                <div className="register_right">
-                    <form className="register_model" onSubmit={register_submit}>
-                        <div className="register_header">Register Here</div>
+                <div className="register right">
+                    <form onSubmit={register_submit}>
+                        <h1>Register Here</h1>
                         <div className="register_input_fields">
-                            <div className="register_input_box">
-                                <FaUserAlt/>
-                                <input type="text" className='user_reg_input' id='user_reg_input' placeholder='Username' required value={user} onChange={(e) => {
-                                    setUser(e.target.value)
-                                }} />
-                            </div>
-                            <div className="register_input_box">
-                                <FaKey/>
-                                <input type="password" className='pass_reg_input' id='pass_reg_input' placeholder='Password' required value={password} onChange={(e) => {
-                                    setPassword(e.target.value)
-                                }} />
-                            </div>
-                            <div className="register_input_box">
-                                <FaKey/>
-                                <input type="password" className='cnf_pass_input' id='cnf_pass_input' placeholder='Confirm Password' required value={cnfPassword} onChange={(e) => {
-                                    setCnfPassword(e.target.value)
-                                }} />
-                            </div>
-                            <div className="register_input_box">
-                                <FaMailBulk/>
-                                <input type="email" className='mail_input' id='mail_input' placeholder='Email' required value={email} onChange={(e) => {
-                                    setEmail(e.target.value)
-                                }} />
-                            </div>
+                            <TextInput name='user_reg_input' id='user_reg_input' placeholder='Enter Your Username' label='Username' value={user} onChange={(e) => {
+                                setUser(e.target.value)
+                            }} required />
+                            <EmailInput name='mail_input' id='mail_input' label='Email' placeholder='Email' value={email} onChange={(e) => {
+                                setEmail(e.target.value)
+                            }} required />
+                            <PasswordInput name='pass_reg_input' id='pass_reg_input' placeholder='Password' label='Password' value={password} onChange={(e) => {
+                                setPassword(e.target.value)
+                            }} required />
+                            <PasswordInput name='cnf_pass_input' id='cnf_pass_input' placeholder='Confirm Password' label='Confirm Password' value={cnfPassword} onChange={(e) => {
+                                setCnfPassword(e.target.value)
+                            }} required />
                         </div>
                         <div className="back_login">
-                            <FaArrowLeft/>
-                            <Link to="/student/login">Back to login</Link>
+                            <FaArrowLeft />
+                            <Link to="/student-login">Back to login</Link>
                         </div>
-                        <div className='reg_sub_btn'>
-                            <button type='submit' className="register_btn" id="register_btn">Register</button>
-                        </div>
+                        <button type='submit' className="register_btn" id="register_btn">Register</button>
                     </form>
-
                 </div>
             </div>
         </div >
-    )
+    );
 }

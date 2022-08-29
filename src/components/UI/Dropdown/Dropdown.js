@@ -6,28 +6,28 @@ import classes from "./Dropdown.module.css"
 //     { name: "Ramanujam" }
 // ]
 
-const Dropdown = ({onChange, options, type}) => {
-    const [open,setOpen] = useState(false)
-    const [selected,setSelected] = useState("");
+const Dropdown = ({ onChange, options, type }) => {
+    const [open, setOpen] = useState(false)
+    const [selected, setSelected] = useState("");
     useEffect(() => {
-        if(selected !== ""){
-            onChange(selected)
+        if (selected !== "") {
+            onChange(selected);
         }
-    },[selected])
-    
+    }, [selected])
+
     return (
-        <div className={classes.select_wrapper} onClick={()=> setOpen(!open)} onMouseLeave={()=>setOpen(false)}>
-            <div className={classes.select +" " + (open?classes.open : "")}>
-                <div className={classes.select__trigger}><span>{selected !=="" ? selected :`Select ${type}` }</span>
+        <div className={classes.select_wrapper} onClick={() => setOpen(!open)} onMouseLeave={() => setOpen(false)}>
+            <div className={classes.select + " " + (open ? classes.open : "")}>
+                <div className={classes.select__trigger}><span>{selected !== "" ? selected : `Select ${type}`}</span>
                     <div className={classes.arrow}></div>
                 </div>
                 <div className={classes.custom_options}>
                     {options.map(option => {
                         return (
-                            <span  
-                                key={option.name} 
-                                className={classes.custom_option + " " + (option.name===selected ? classes.selected : "")} 
-                                onClick = {() => setSelected(option.name)}
+                            <span
+                                key={option.name}
+                                className={classes.custom_option + " " + (option.name === selected ? classes.selected : "")}
+                                onClick={() => setSelected(option.name)}
                                 data-value="">
                                 {option.name}
                             </span>
@@ -38,5 +38,5 @@ const Dropdown = ({onChange, options, type}) => {
         </div>
     );
 }
- 
+
 export default Dropdown;

@@ -35,7 +35,7 @@ export default function ClientLogin() {
                 setUsername(e.target.value)
             }} onPasswordChange={(e) => {
                 setPassword(e.target.value)
-            }} />
+            }} forgotLink='/student-login/forgot' />
         </div>
     );
 }

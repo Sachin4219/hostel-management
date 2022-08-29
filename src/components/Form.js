@@ -7,7 +7,6 @@ import '../pages/css/form.css';
 import TextInput from './TextInput';
 import axios from 'axios';
 
-
 function Form(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,15 +17,15 @@ function Form(props) {
             username: username,
             password: password,
         }
-        const url = props.formHeading==="Admin Login" ? "http://localhost:4000/admin/login"  : "http://localhost:4000/student/login" 
+        const url = props.formHeading === "Admin Login" ? "http://localhost:4000/admin/login" : "http://localhost:4000/student/login"
         try {
-            
+
             axios.post(url, login_data)
                 .then(response => {
                     console.log(response)
                     localStorage.setItem("token", response.data.data.token);
                     localStorage.setItem("username", response.data.data.username);
-                    window.location = props.formHeading==="Admin Login" ? "admin-dashboard" : "client-dashboard";
+                    window.location = props.formHeading === "Admin Login" ? "admin-dashboard" : "client-dashboard";
                 })
         }
         catch (error) {
@@ -45,14 +44,14 @@ function Form(props) {
                 <option value="Officer-3">Officer 3</option>
             </select> */}
             <TextInput id='user_name' label='Username' name='user_name' placeholder='Enter you Username' value={username} onChange={(e) => setUsername(e.target.value)} />
-            <PasswordInput id='password' label='Password' name='password' placeholder='Password'  value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <PasswordInput id='password' label='Password' name='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
             <div className="forgetRemem">
                 <Checkbox checkboxClass='remember' name='remember' id='remember' label='Remember Me' />
-                <Link to="/forgot" className="forgot" id="forgot">Forgot password ?</Link>
+                <Link to={props.forgotLink} className="forgot" id="forgot">Forgot password ?</Link>
             </div>
             <button type='submit'>Log In</button>
             <div className={props.newUserClass}>
-                <p>New here? <Link to="/">Create New Account</Link></p>
+                <p>New here? <Link to="/student/register">Create New Account</Link></p>
             </div>
         </form>
     );
@@ -60,15 +59,16 @@ function Form(props) {
 
 
 Form.propTypes = {
-    onSubmit: PropTypes.any,
+    // onSubmit: PropTypes.any,
     formClass: PropTypes.string,
     formHeading: PropTypes.string.isRequired,
-    selectClass: PropTypes.string.isRequired,
-    newUserClass: PropTypes.string.isRequired,
-    textValue: PropTypes.any,
-    passwordValue: PropTypes.any,
-    onTextChange: PropTypes.any,
-    onPasswordChange: PropTypes.any
+    // selectClass: PropTypes.string.isRequired,
+    forgotLink: PropTypes.string,
+    newUserClass: PropTypes.string,
+    // textValue: PropTypes.any,
+    // passwordValue: PropTypes.any,
+    // onTextChange: PropTypes.any,
+    // onPasswordChange: PropTypes.any
 }
 
 export default Form;

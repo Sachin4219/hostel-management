@@ -15,7 +15,6 @@ body {
 
 nav {
   font-family: 'PT Sans Caption', sans-serif;
-  /* background-color: #34495e; */
   background-color: #115c8d;
   color: #ffffff;
   font-size: 1.5rem;
@@ -101,7 +100,6 @@ nav .menu li:hover {
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
-  /* width: 50%; */
 }
 
 .featureBox:hover {
@@ -168,7 +166,6 @@ nav .menu li:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 0 8%; */
 }
 
 .titleContent {

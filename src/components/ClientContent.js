@@ -14,7 +14,7 @@ function ClientContent() {
             <h1>Quick Actions : </h1>
             <div className="quickActionBlock">
                 <a href='/student/profile'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={1} title='Student Profile' /></a>
-                <a href='student/complaints/new'><QuickAction iconClass={svg.write[0]} path={svg.write[1]} fillRule={svg.write[3]} path2={svg.write[2]} number={2} title='File Complaint' /></a>
+                <a href='/student/complaints/new'><QuickAction iconClass={svg.write[0]} path={svg.write[1]} fillRule={svg.write[3]} path2={svg.write[2]} number={2} title='File Complaint' /></a>
                 <a href='/student/complaints'><QuickAction iconClass={svg.status[0]} path={svg.status[1]} number={3} title='View Complaints' /></a>
                 <a href='/'><QuickAction iconClass={svg.logout[0]} path={svg.logout[1]} fillRule={svg.logout[2]} number={4} title='Logout' /></a>
             </div>

@@ -21,7 +21,7 @@ export default function Login(props) {
                 <h1>Welcome to {props.formHeading} Login</h1>
             </div>
             <div className="right">
-                <Form formClass={props.formContainerClass} formHeading={formHeading} selectClass={selectClass} newUserClass={newUserClass + props.newUser} onSubmit={props.onSubmit} textValue={props.textValue} passwordValue={props.passwordValue} onTextChange={props.onTextChange} onPasswordChange={props.onPasswordChange} />
+                <Form formClass={props.formContainerClass} formHeading={formHeading} selectClass={selectClass} forgotLink={props.forgotLink} newUserClass={newUserClass + props.newUser} onSubmit={props.onSubmit} textValue={props.textValue} passwordValue={props.passwordValue} onTextChange={props.onTextChange} onPasswordChange={props.onPasswordChange} />
             </div>
         </div>
     );
@@ -32,6 +32,7 @@ Login.propTypes = {
     formContainerClass: PropTypes.string.isRequired,
     formHeading: PropTypes.string.isRequired,
     newUser: PropTypes.string,
+    forgotLink: PropTypes.string,
     textValue: PropTypes.any,
     passwordValue: PropTypes.any,
     onTextChange: PropTypes.any,
