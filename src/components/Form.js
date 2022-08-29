@@ -17,7 +17,8 @@ function Form(props) {
             username: username,
             password: password,
         }
-        const url = props.formHeading === "Admin Login" ? "http://localhost:4000/admin/login" : "http://localhost:4000/student/login"
+        const url = props.formHeading === "Admin Login" ? "https://still-refuge-61452.herokuapp.com/admin/login" : "https://still-refuge-61452.herokuapp.com/student/login";
+
         try {
 
             axios.post(url, login_data)
