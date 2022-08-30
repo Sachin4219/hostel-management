@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./Dropdown.module.css"
 
-// const options = [
-//     { name: "Aryabhatta" },
-//     { name: "Ramanujam" }
-// ]
 
 const Dropdown = ({ onChange, options, type }) => {
     const [open, setOpen] = useState(false)

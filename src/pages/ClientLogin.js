@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Login from '../components/Login';
 import axios from 'axios';
-
+import Navbar from '../components/Navbar';
 
 export default function ClientLogin() {
 
@@ -30,12 +30,15 @@ export default function ClientLogin() {
     }
 
     return (
-        <div className="loginContainer">
-            <Login formContainerClass='studentLogin' formHeading='Student' onSubmit={login_submit} textValue={username} passwordValue={password} onTextChange={(e) => {
-                setUsername(e.target.value)
-            }} onPasswordChange={(e) => {
-                setPassword(e.target.value)
-            }} forgotLink='/student-login/forgot' />
+        <div>
+            <Navbar tab1='Admin Login' tab2='Student Login' tab3='Register' link1='/admin-login' link2='/student-login' link3='student/register' />
+            <div className="loginContainer">
+                <Login formContainerClass='studentLogin' formHeading='Student' onSubmit={login_submit} textValue={username} passwordValue={password} onTextChange={(e) => {
+                    setUsername(e.target.value)
+                }} onPasswordChange={(e) => {
+                    setPassword(e.target.value)
+                }} forgotLink='/student-login/forgot' />
+            </div>
         </div>
     );
 }

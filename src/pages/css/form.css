@@ -148,3 +148,26 @@ form button[type=submit]:hover {
         float: right;
     }
 }
+
+/*  */
+.dropdown_file{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 16px;
+}
+
+.dropdown_file p{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2f3d8e; 
+    margin:0; 
+}
+
+@media screen and (max-width: 450px) {
+    .dropdown_file {
+        flex-direction: column;
+        align-items: flex-start;
+        /* margin: 0 0 16px; */
+    }
+}

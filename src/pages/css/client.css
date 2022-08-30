@@ -1,3 +1,9 @@
+.load-center{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
 .quickActionBox {
     width: 100%;
     border: 1px solid #273272;

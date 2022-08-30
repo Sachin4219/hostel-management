@@ -26,7 +26,7 @@ const StudentTable = () => {
                 }
             } catch (error) {
                 console.log(error)
-                // window.location="/student-login"
+                window.location="/student-login"
             }
         }
         verifyToken()

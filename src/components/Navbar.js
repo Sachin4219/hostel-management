@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const src = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Indian_Institute_of_Technology_Bhubaneswar_Logo.svg/1200px-Indian_Institute_of_Technology_Bhubaneswar_Logo.svg.png';
 
@@ -23,10 +24,17 @@ function HomeNavbar(props) {
 
     return (
         <nav>
-            <div className="left">
-                <img src={src} alt="logo" height="40" width="40" />
-                <span className='name'>IIT Bhubaneshwar</span>
-            </div>
+            {props.tab1 ==="Profile" ? 
+                <div className="left">
+                    <img src={src} alt="logo" height="40" width="40" />
+                    <span className='name'>IIT Bhubaneshwar</span>
+                </div>
+            :
+                <Link to="/" className="left">
+                    <img src={src} alt="logo" height="40" width="40" />
+                    <span className='name'>IIT Bhubaneshwar</span>
+                </Link>
+            }
             <div className="right">
                 <div className="hamburger" onClick={onClick}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">

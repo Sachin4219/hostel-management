@@ -30,7 +30,7 @@ function Client() {
 
     return (
         <>
-            {isLoading ? <h1>Loading...</h1> :
+            {isLoading ? <h1 className='load-center'>Loading...</h1> :
                 <div>
                     <Navbar tab1='Profile' tab2='File Complaint' tab3='Logout' link1='/student/profile' link2='/student/complaints/new' link3='/' />
                     <Image />

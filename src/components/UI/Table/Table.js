@@ -8,7 +8,8 @@ import Dropdown from "../Dropdown/Dropdown";
 
 const optionHostels = [
     { name: "Aryabhatta" },
-    { name: "Ramanujam" }
+    { name: "Ramanujam" },
+    { name: "Kalam"}
 ]
 const optionCategory = [
     { name: "cleanliness" },
@@ -48,7 +49,7 @@ const Table = () => {
                     setVerified(true)
                 }
             } catch (error) {
-                window.location="/login"
+                window.location="/admin-login"
             }
         }
         verifyToken()

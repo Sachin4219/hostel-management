@@ -21,15 +21,15 @@
     padding: 0 16px;
     font-size: 18px;
     text-transform: capitalize;
-    font-weight: 300;
-    color: #3b3b3b;
-    height: 60px;
-    line-height: 60px;
+    font-weight: 400;
+    color: #2f3d8e;
+    height: 40px;
+    line-height: 40px;
     background: #ffffff;
     cursor: pointer;
     border-width: 2px 0 2px 0;
     border-style: solid;
-    border-color: #394a6d;
+    border-color: #273272;
 }
 
 .custom_options {
@@ -38,7 +38,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    border: 2px solid #394a6d;
+    border: 2px solid #273272;
     border-top: 0;
     background: #fff;
     transition: all 0.5s;
@@ -60,9 +60,9 @@
     display: block;
     padding: 0 18px;
     font-size: 18px;
-    font-weight: 300;
-    color: #3b3b3b;
-    line-height: 60px;
+    font-weight: 400;
+    color: #2f3d8e;
+    line-height: 40px;
     cursor: pointer;
     transition: all 0.5s;
 }
