@@ -15,7 +15,7 @@ function AdminContent() {
             <div className="quickActionBlock">
                 <a href='/admin/profile'><QuickAction iconClass={svg.person[0]} path={svg.person[1]} number={1} title='Admin Profile' /></a>
                 <a href='/admin/complaints'><QuickAction iconClass={svg.archive[0]} path={svg.archive[1]} number={2} title='View Complaints' /></a>
-                <a href='/'><QuickAction iconClass={svg.student[0]} path={svg.student[1]} number={3} title='Student Details' /></a>
+                <a href='/'><QuickAction iconClass={svg.student[0]} path={svg.student[1]} number={3} title='Admin Details' /></a>
                 <a href='/'><QuickAction iconClass={svg.logout[0]} path={svg.logout[1]} fillRule={svg.logout[2]} number={4} title='Logout' /></a>
             </div>
         </div>
