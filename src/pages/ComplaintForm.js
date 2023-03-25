@@ -44,7 +44,7 @@ export default function ComplaintForm() {
                 }
             }
             try {
-                const resp = await axios.get("https://still-refuge-61452.herokuapp.com/student/check_login", config)
+                const resp = await axios.get("https://hostel-management-z2tp.onrender.com/student/check_login", config)
                 if (resp.data.verified)
                     setLoading(false)
             } catch (error) {
@@ -73,7 +73,7 @@ export default function ComplaintForm() {
                 Authorization: `Bearer ${token}`
             }
         }
-        axios.post("https://still-refuge-61452.herokuapp.com/student/complaints", form_data, config)
+        axios.post("https://hostel-management-z2tp.onrender.com/student/complaints", form_data, config)
             .then(res => {
                 console.log(res.data)
                 window.location = "/client-dashboard"

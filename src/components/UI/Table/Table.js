@@ -43,7 +43,7 @@ const Table = () => {
                 }
             }  
             try {
-                const resp = await axios.get("https://still-refuge-61452.herokuapp.com/admin/check_login", config)
+                const resp = await axios.get("https://hostel-management-z2tp.onrender.com/admin/check_login", config)
                 if(resp.data.verified){
                     setLoading(false)
                     setVerified(true)
@@ -66,7 +66,7 @@ const Table = () => {
             }  
             try {
             setLoading(true)
-            const resp= await axios.get(`https://still-refuge-61452.herokuapp.com/admin/complaints/${officerType}`,config) 
+            const resp= await axios.get(`https://hostel-management-z2tp.onrender.com/admin/complaints/${officerType}`,config) 
             setComplaints(resp.data.complaints);
             setFilteredComplaints(resp.data.complaints)
             setLoading(false)

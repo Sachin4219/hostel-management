@@ -17,7 +17,7 @@ function Form(props) {
             username: username,
             password: password,
         }
-        const url = props.formHeading === "Admin Login" ? "https://still-refuge-61452.herokuapp.com/admin/login" : "https://still-refuge-61452.herokuapp.com/student/login";
+        const url = props.formHeading === "Admin Login" ? "https://hostel-management-z2tp.onrender.com/admin/login" : "https://hostel-management-z2tp.onrender.com/student/login";
 
         try {
 

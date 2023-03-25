@@ -16,7 +16,7 @@ export default function ClientLogin() {
         }
 
         try {
-            axios.post("https://still-refuge-61452.herokuapp.com/student/login", login_data)
+            axios.post("https://hostel-management-z2tp.onrender.com/student/login", login_data)
                 .then(response => {
                     console.log(response)
                     localStorage.setItem("token", response.data.data.token);
